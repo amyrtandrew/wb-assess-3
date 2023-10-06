@@ -20,5 +20,10 @@
     "morgan": "^1.10.0",
     "nunjucks": "^3.2.4",
     "vite-express": "^0.9.1"
-  }
+  },
+  "main": "app.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

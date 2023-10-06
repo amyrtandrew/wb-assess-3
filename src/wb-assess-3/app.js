@@ -70,3 +70,23 @@ app.get('/random-fossil.json', (req, res) => {
 ViteExpress.listen(app, port, () => {
   console.log(`Server running on http://localhost:${port}...`);
 });
+
+app.get('/top-fossils', (req, res) => {
+  res.render('top-fossils.html.njk', { mostLiked: Object.values(MOST_LIKED_FOSSILS) })
+})
+
+app.get('/', (req, res) => {
+  // console.log(req.query)
+  res.render('homepage.html.njk')
+})
+
+app.get('/get-name', (req, res) => {
+  console.log(req.query)
+  let { name } = req.query
+  res.send(`welsome, ${name}`)
+  // if (req.session.userName) {
+  //   res.render('/top-fossils', { userName: req.session.userName})
+  // } else {
+  //   res.render('/top-fossils')
+  // }
+})
