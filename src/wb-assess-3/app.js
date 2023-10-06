@@ -98,3 +98,10 @@ app.post('/get-name', (req, res) => {
     req.session.name = name
     res.redirect('/top-fossils')
 })
+
+
+app.post('/like-fossil', (req, res) => {
+console.log(req.body)
+  res.render('thank-you.html.njk', {name: req.session.name })
+})
+
