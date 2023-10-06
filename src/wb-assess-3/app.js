@@ -72,7 +72,7 @@ ViteExpress.listen(app, port, () => {
 });
 
 app.get('/top-fossils', (req, res) => {
-  res.render('top-fossils.html.njk', { mostLiked: Object.values(MOST_LIKED_FOSSILS) })
+  res.render('top-fossils.html.njk', { mostLiked: Object.values(MOST_LIKED_FOSSILS), name: req.session.name  })
 })
 
 app.get('/', (req, res) => {
@@ -80,13 +80,13 @@ app.get('/', (req, res) => {
   res.render('homepage.html.njk')
 })
 
-app.get('/get-name', (req, res) => {
-  console.log(req.query)
-  let { name } = req.query
-  res.send(`welsome, ${name}`)
-  // if (req.session.userName) {
-  //   res.render('/top-fossils', { userName: req.session.userName})
-  // } else {
-  //   res.render('/top-fossils')
-  // }
+
+
+app.post('/get-name', (req, res) => {
+  // console.log(req.query)
+  // console.log(req.body)
+  // console.log(req.params)
+  const { name } = req.body
+    req.session.name = name
+    res.redirect('/top-fossils')
 })
