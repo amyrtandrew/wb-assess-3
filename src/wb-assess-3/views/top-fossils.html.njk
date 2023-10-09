@@ -17,16 +17,17 @@
         <img src="{{ fossils.img }}" />
       {% endfor %}
     </div>
-  <form id="dino-type" action="/like-fossil" method="post">
-    <select>
-      <option value="aust">Australopithecus</option>
-      <option value="quetz">Quetzal</option>
-      <option value="steg">Stegosaurus</option>
-      <option value="trex">Tyrannosaurus Rex</option>
-      <input type="submit" />
-    </select>
+  <form action="/like-fossil" method="post" >
+      <select name="dino">
+        <option value="aust">Australopithecus</option>
+        <option value="quetz">Quetzal</option>
+        <option value="steg">Stegosaurus</option>
+        <option value="trex">Tyrannosaurus Rex</option>
+     </select>
+     <input type="submit" />
   </form>
    {% endblock body %}
   </body>
+
 
 

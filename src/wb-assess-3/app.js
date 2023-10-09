@@ -99,9 +99,23 @@ app.post('/get-name', (req, res) => {
     res.redirect('/top-fossils')
 })
 
-
+// let likedCount = document.querySelector('#dino-type')
 app.post('/like-fossil', (req, res) => {
+console.log(req.query)
 console.log(req.body)
+console.log(req.params)
+
+// whatever value a person submits, store that value
+const { dino } = req.body
+req.session.dino = dino
+for (const key in MOST_LIKED_FOSSILS) {
+  if (key === dino) {
+    MOST_LIKED_FOSSILS[dino].num_likes++
+  }
+}
+    // console.log(MOST_LIKED_FOSSILS[key])
   res.render('thank-you.html.njk', {name: req.session.name })
 })
+
+// likedCount.addEventListener('submit', )
 
